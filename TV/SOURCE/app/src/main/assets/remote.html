@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="omnipad-target" content="tv">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F7F6F3">
+<title>OmniPad — Remote dari HP</title>
+<style>
+:root{font-family:'SF Pro Display','Helvetica Neue',Arial,sans-serif;color:#2f3437;background:#f7f6f3;color-scheme:light;line-height:1.6;--muted:#50564b;--border:#eaeaea;--ink:#252722;--surface:#fff;--green:#edf3ec;--green-ink:#346538}
+*{box-sizing:border-box}body{margin:0}button,input,textarea{font:inherit}button{color:inherit;cursor:pointer;min-height:48px;border:1px solid #eaeaea;border-radius:6px;background:#fff;padding:12px 16px;touch-action:manipulation;transition:transform .15s,background-color .15s}button:hover:not(:disabled){background:#f0efeb}button:active:not(:disabled){transform:scale(.98)}button:disabled{cursor:not-allowed;color:#555d4f;background:#e9ece4;border-color:#7b8472}button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid #2f3437;outline-offset:4px}button.primary{background:#252722;color:#fff;border-color:#252722}button.primary:hover:not(:disabled){background:#3a3d35}button.primary:disabled{background:#e9ece4;border-color:#7b8472;color:#555d4f}button.held{background:#edf3ec;color:#346538;border-color:#b9cbb7}button[data-key],button[data-mouse]{touch-action:none;user-select:none;-webkit-user-select:none}svg{width:24px;height:24px;fill:currentColor;flex-shrink:0}svg.big{width:34px;height:34px}.shell{max-width:1024px;padding:32px 32px calc(24px + env(safe-area-inset-bottom));margin:auto}header{display:flex;justify-content:space-between;gap:16px;align-items:center;border-bottom:1px solid #eaeaea;padding-bottom:22px}.brand{font-weight:650;font-size:22px;letter-spacing:-.7px;display:flex;gap:10px;align-items:center}.brand svg{width:26px;height:26px}.meta{font-size:12px;color:var(--muted);margin:0}.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}.badge{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;border-radius:9999px;background:#eeede9;padding:5px 10px;white-space:nowrap}.badge[data-state=ready]{background:var(--green);color:var(--green-ink)}.badge[data-state=preview],.badge[data-state=testing]{background:#fbf3db;color:#805b13}.badge[data-state=error]{background:#fdebec;color:#9f2f2d}.badge:before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}.preview-note{padding:12px 0;font-size:13px;color:#805b13}.workspace{display:grid;grid-template-columns:240px minmax(0,1fr);gap:32px;padding-top:28px}.sidebar h1{font-family:Georgia,'Times New Roman',serif;font-size:34px;font-weight:400;line-height:1.15;letter-spacing:-1.1px;margin:0 0 12px}.hint{font-size:13px;color:var(--muted);margin:6px 0 0;line-height:1.6}nav{display:grid;gap:6px;margin:24px 0}nav button{display:flex;align-items:center;gap:12px;text-align:left;background:transparent;border-color:transparent}nav button[aria-selected=true]{background:#fff;border:1px solid #eaeaea;font-weight:600}nav button svg{width:21px;height:21px}.connection-detail{border-top:1px solid #eaeaea;padding-top:16px}.connection-detail p{margin:0}.latency{font-family:'SF Mono',Consolas,monospace;font-size:11px;color:var(--muted);margin-top:8px!important}#disconnect{margin-top:10px;font-size:12px;min-height:38px;padding:6px 0;border:0;background:transparent;text-decoration:underline;text-underline-offset:4px}.panel{min-width:0}.panel-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}h2{font-size:19px;letter-spacing:-.4px;margin:0;font-weight:600}h3{font-size:14px;font-weight:600;margin:0}.card{background:#fff;border:1px solid #eaeaea;border-radius:12px;padding:24px}.connect-card{margin-bottom:20px}.connect-card h2{margin-bottom:6px}.connect-card label{font-size:13px;font-weight:600;display:block;margin-top:20px}.connect-row{display:flex;gap:8px;margin-top:6px}.connect-row input{min-width:0;flex:1}input,textarea{border:1px solid #eaeaea;border-radius:6px;background:#fbfbfa;color:#2f3437;padding:12px;min-height:48px;width:100%}input[aria-invalid=true]{border-color:#9f2f2d}textarea{resize:vertical;min-height:92px}.field-error{font-size:13px;color:#9f2f2d;margin:6px 0 0}.field-error:empty{display:none}.quiet-action{padding:8px 12px;font-size:12px;min-height:40px;background:transparent}.trackpad{height:290px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;text-align:center;touch-action:none;user-select:none;-webkit-user-select:none;background:#fbfbfa;border:1px solid #eaeaea;border-radius:12px;position:relative;overflow:hidden}.trackpad:before,.trackpad:after{content:'';position:absolute;inset:16px;border:1px solid #eaeaea;border-radius:8px;pointer-events:none}.trackpad:after{inset:auto auto 24px;width:28px;height:3px;background:#deded7;border:0;border-radius:2px}.trackpad strong{font-size:19px;font-weight:500;letter-spacing:-.5px}.trackpad p{font-size:13px;color:var(--muted);margin:0}.trackpad svg{color:#696c61;width:32px;height:32px}.trackpad[aria-disabled=true]{opacity:1;background:#e9ece4;border-style:dashed}.mouse-buttons{display:grid;grid-template-columns:1.2fr .8fr 1.2fr;gap:8px;margin-top:10px}.mouse-buttons button{font-size:13px;min-height:56px}.inline-hint{font-size:12px;color:var(--muted);margin:10px 0 0}.text-card{margin-top:20px}details.text-card>summary{font-size:14px;font-weight:600;cursor:pointer;padding:17px 20px;min-height:56px}details.text-card{border:1px solid #eaeaea;border-radius:12px;background:#fff}details.text-card .content{padding:0 20px 20px}.text-card label{display:block;font-size:12px;color:var(--muted);margin:2px 0 8px}.text-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}.text-actions button{font-size:13px}.text-actions .primary{margin-left:auto}#count{font-size:11px;font-family:'SF Mono',Consolas,monospace;color:var(--muted);margin-top:4px;display:block;text-align:right}.media-main{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:10px;align-items:stretch;margin:16px 0 24px}.media-main button{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;font-size:12px;min-height:108px}.media-main .primary{min-height:128px}.volume{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:14px}.volume button{display:flex;align-items:center;justify-content:center;gap:8px}.volume span{font-size:12px}.divider{border-top:1px solid #eaeaea;margin:24px 0}.shortcuts{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.shortcuts button{font-size:13px;display:flex;justify-content:space-between;align-items:center;gap:8px}kbd{font-family:'SF Mono',Consolas,monospace;font-size:10px;border:1px solid #eaeaea;background:#f7f6f3;border-radius:4px;padding:2px 6px;white-space:nowrap}.game-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center;margin:30px 0}.dpad{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.dpad button{min-height:64px;display:flex;align-items:center;justify-content:center}.game-actions{display:grid;gap:8px}.game-actions button{min-height:64px;font-size:13px}.game-actions small{display:block;font-size:12px;opacity:1}.key-label{display:flex;align-items:center;gap:8px;justify-content:center}.bottom-help{margin-top:24px;border-top:1px solid #eaeaea}.bottom-help summary{cursor:pointer;min-height:48px;display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--muted);list-style:none}.bottom-help summary:after{content:'+';font-size:20px;font-weight:400}.bottom-help[open] summary:after{content:'−'}.bottom-help ul{padding-left:18px;margin:0 0 16px;font-size:13px;color:var(--muted)}.feedback{min-height:30px;font-size:12px;color:#4c6244;margin:14px 0 0}.notice{background:#fbf3db;color:#805b13;padding:12px 16px;border-radius:8px;font-size:13px;margin:0 0 16px}.footer{margin-top:28px;display:flex;justify-content:space-between;font-size:11px;color:var(--muted);border-top:1px solid #eaeaea;padding-top:16px;gap:16px}[hidden]{display:none!important}.reveal{animation:enter .4s cubic-bezier(.16,1,.3,1) both}@keyframes enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){.shell{padding:20px 18px calc(18px + env(safe-area-inset-bottom))}header{padding-bottom:16px}.workspace{grid-template-columns:1fr;gap:12px;padding-top:20px}.sidebar h1{font-size:29px;margin-bottom:6px}.sidebar>.hint{display:none}nav{grid-template-columns:repeat(3,1fr);gap:4px;margin:18px 0 0}nav button{padding:10px 4px;font-size:13px;justify-content:center;gap:6px}.connection-detail{border:0;padding:0;margin-top:12px}.connection-detail>p:first-child{font-size:12px;line-height:1.5}.latency{display:inline;font-size:10px}#disconnect{margin:0 0 0 14px;min-height:32px}.panel-heading{margin-top:4px}.trackpad{height:32vh;min-height:200px;max-height:300px}.card{padding:20px}.media-main{gap:8px}.volume{gap:6px}.volume button{padding:12px 6px}.game-layout{gap:16px}.footer{margin-top:20px;font-size:10px}.connect-row{flex-direction:column}.connect-row .primary{width:100%}.mouse-buttons button{padding:12px 5px}.text-actions button{padding:10px}.shortcuts button{padding:12px 10px}.meta{font-size:11px}}
+@media(max-height:500px) and (orientation:landscape){.shell{max-width:1000px;padding-top:12px}header{padding-bottom:10px}.workspace{grid-template-columns:180px minmax(0,1fr);gap:20px;padding-top:16px}nav{display:grid;grid-template-columns:1fr;margin:12px 0}.sidebar h1{font-size:25px}.trackpad{height:180px;min-height:150px}.footer{display:none}.game-layout{margin:10px 0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Contrast revision: keep muted surfaces, make controls and labels distinct. */
+:root{--control-border:#7b8472;--divider:#bdc3b5;--ink:#20251d;color:#20251d}
+button{border-color:var(--control-border);font-weight:550}
+button:disabled{opacity:1}
+button.primary{background:#252722;color:#fff;border-color:#252722}
+button.primary:disabled{background:#e9ece4;border-color:var(--control-border);color:#555d4f}
+nav button{background:#f7f6f3;border-color:var(--control-border);color:#343d2c}
+nav button[aria-selected=true],nav button[aria-selected=true]:hover{background:#252722;color:#fff;border-color:#252722}
+nav button[aria-selected=false]:hover{background:#e7eade;color:#20251d}
+button.held{background:#dcebd4;color:#214b25;border-color:#37643a}
+input,textarea{border-color:var(--control-border);background:#fff;color:#20251d}
+input::placeholder,textarea::placeholder{color:#596150;opacity:1}
+input:disabled,textarea:disabled{color:#555d4f;background:#e9ece4;opacity:1}
+.card,details.text-card{border-color:var(--divider)}
+header,.connection-detail,.divider,.bottom-help,.footer{border-color:var(--divider)}
+.trackpad{background:#f0f2e9;border-color:var(--control-border);color:#20251d}
+.trackpad:before{border-color:#bcc5af}
+.trackpad:after{background:#5b664f}
+.trackpad svg{color:#434e38}
+.trackpad strong{font-weight:600}
+.trackpad p{color:#434e38;font-size:14px}
+.hint,.inline-hint,.meta,.bottom-help summary,.bottom-help ul,.footer,.latency,#count{color:#50564b}
+.inline-hint,.text-card label,.bottom-help summary,.footer{font-size:13px}
+.badge{background:#e6e9df;color:#35402b;border:1px solid #7b8472;font-size:12px}
+.badge[data-state=ready]{background:#edf3ec;color:#28512c;border-color:#557950}
+.badge[data-state=preview],.badge[data-state=testing]{background:#fbf3db;color:#644606;border-color:#927429}
+.badge[data-state=error]{background:#fdebec;color:#882927;border-color:#a14e4a}
+.notice{color:#644606;border:1px solid #927429}
+.preview-note{color:#644606}
+.feedback{color:#2f5426;font-size:13px}
+kbd{color:#343d2c;border-color:var(--control-border)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #252722;outline-offset:3px}
+
+/* PS-style game surface: thumb zones below, shoulders above, face buttons right. */
+.rotate-hint{font-size:13px;color:#50564b;margin:0 0 14px}
+.game-stage{background:#e9ece4;border:1px solid #7b8472;border-radius:12px;padding:16px;color:#20251d}
+.game-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.game-toolbar button{min-height:44px;font-size:12px;background:#fff;border-color:#7b8472}
+#exit-game{display:none}#game-state{font-size:11px;font-family:'SF Mono',Consolas,monospace;color:#414b35}
+.ps-controller{display:grid;grid-template-columns:1fr .88fr 1fr;grid-template-rows:64px 150px 150px;gap:10px 12px;max-width:850px;margin:0 auto;padding:12px;touch-action:none;user-select:none;-webkit-user-select:none}
+.ps-controller button{touch-action:none;border:1px solid #252722;background:#252722;color:#fff;min-height:48px;font-weight:600}
+.ps-controller button:hover:not(:disabled){background:#3b4035;color:#fff}
+.ps-controller button.held{background:#dcebd4;color:#214b25;border-color:#37643a}
+.ps-controller button:disabled{background:#d8ddd0;color:#505a46;border-color:#7b8472}
+.ps-controller button:focus-visible{outline:3px solid #252722;outline-offset:4px}
+.shoulder{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:start}
+.shoulder-left{grid-area:1/1}.shoulder-right{grid-area:1/3}.shoulder-right button:first-child{order:2}
+.shoulder button{height:54px;padding:8px;border-radius:10px 10px 6px 6px;font-size:17px}
+.shoulder button[data-key=z],.shoulder button[data-key=c]{background:#fff;color:#252722;border-color:#69745c}
+.shoulder button.held[data-key=z],.shoulder button.held[data-key=c]{background:#dcebd4;color:#214b25}
+.shoulder button:disabled[data-key=z],.shoulder button:disabled[data-key=c]{background:#d8ddd0;color:#505a46}
+.controller-brand{grid-area:1/2;text-align:center;padding-top:4px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.controller-brand span{font-size:13px;font-weight:700;letter-spacing:.15em}.controller-brand small{font-size:9px;color:#50564b;letter-spacing:.1em;margin-top:2px}
+.ps-dpad,.ps-face{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:3px;width:150px;height:150px;justify-self:center;align-self:center}
+.ps-dpad{grid-area:2/1}.ps-face{grid-area:2/3;gap:2px}
+.ps-dpad button,.ps-face button{min-height:0;min-width:0;padding:8px;display:grid;place-items:center}
+.north{grid-area:1/2}.west{grid-area:2/1}.east{grid-area:2/3}.south{grid-area:3/2}
+.dpad-center{grid-area:2/2;background:#252722;border-radius:3px}
+.ps-dpad button svg{width:23px;height:23px}
+.ps-face button{border-radius:50%;width:49px;height:49px}
+.ps-face svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+.ps-face .triangle{color:#b8e4bf}.ps-face .square{color:#f1bdd7}.ps-face .circle{color:#f2bdb5}.ps-face .cross{color:#b8d8f1}
+.ps-center{grid-area:2/2;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.system-buttons{display:flex;align-items:center;justify-content:center;gap:10px}
+.system-buttons button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-height:64px;padding:8px 10px;border-radius:8px;font-size:10px}
+.system-buttons button svg{width:18px;height:18px}.select-shape{height:7px;width:18px;background:currentColor;border-radius:1px}
+.ps-center p{font-size:11px;line-height:1.5;color:#50564b;margin:0}
+.center-rule{width:22px;height:3px;background:#737e66;margin:0 auto}
+.analog-cluster{display:flex;flex-direction:column;align-items:center;gap:6px;align-self:center}
+.analog-left{grid-area:3/1/4/3;justify-self:center;margin-right:25%}.analog-right{grid-area:3/2/4/4;justify-self:center;margin-left:25%}
+.analog{width:108px;height:108px;border-radius:50%;background:#d7ddcd;border:2px solid #606c53;display:grid;place-items:center;touch-action:none;position:relative}
+.analog:before{content:'';position:absolute;width:80px;height:80px;border:1px solid #8a957d;border-radius:50%;pointer-events:none}
+.analog-thumb{display:block;width:62px;height:62px;border:2px solid #252722;border-radius:50%;background:#343d2c;pointer-events:none;position:relative}
+.analog-thumb:after{content:'';position:absolute;inset:12px;border:1px solid #c0c9b4;border-radius:50%}
+.analog.engaged{border-color:#28512c;background:#dcebd4}.analog.engaged .analog-thumb{background:#28512c}
+.analog[aria-disabled=true]{border-style:dashed;background:#d8ddd0}.analog[aria-disabled=true] .analog-thumb{background:#68725c}
+.ps-controller .stick-press{border:0;background:transparent;color:#343d2c;font-size:12px;min-height:34px;padding:4px 10px}
+.stick-press small{font-weight:400;font-size:10px;margin-left:5px}.ps-controller .stick-press:hover:not(:disabled){background:#d5dccb;color:#252722}
+.game-footnote{text-align:center;font-size:11px;color:#414b35;margin:8px 0 0}.mapping-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12px;margin:0 0 12px}.mapping-grid p{margin:0;color:#50564b}.mapping-grid strong{display:block;color:#252722}
+body.game-expanded{overflow:hidden}body.game-expanded .game-stage{position:fixed;inset:0;z-index:50;border:0;border-radius:0;padding:10px max(14px,env(safe-area-inset-right)) 8px max(14px,env(safe-area-inset-left));overflow:auto;background:#e9ece4;display:flex;flex-direction:column}
+body.game-expanded #exit-game{display:block}body.game-expanded .ps-controller{width:100%;max-width:1000px;flex:1;grid-template-rows:56px minmax(128px,1fr) minmax(120px,1fr);min-height:330px;padding-top:0}
+body.game-expanded .game-toolbar{margin-bottom:0}body.game-expanded .game-footnote{margin:4px 0}
+@media(max-width:700px) and (orientation:portrait){.ps-controller{grid-template-rows:58px 112px 138px;gap:12px 4px;padding:4px}.ps-dpad,.ps-face{width:112px;height:112px;gap:2px}.ps-face button{width:36px;height:36px;padding:4px}.ps-face svg{width:22px;height:22px}.ps-dpad button{padding:4px}.ps-dpad button svg{width:19px;height:19px}.shoulder{gap:5px}.shoulder button{height:48px;font-size:14px}.system-buttons{gap:5px}.system-buttons button{padding:6px;min-width:40px;min-height:52px}.controller-brand span{font-size:11px}.controller-brand small{font-size:8px}.ps-center p{font-size:10px}.ps-center{gap:10px}.analog{width:98px;height:98px}.analog-left{margin-right:15%}.analog-right{margin-left:15%}.game-stage{padding:12px 8px}.ps-face button,.ps-dpad button{min-height:36px}.ps-dpad,.ps-face{min-height:112px}.ps-controller .stick-press{font-size:11px}.stick-press small{font-size:9px}.game-footnote{font-size:11px}body.game-expanded .ps-controller{grid-template-rows:64px minmax(140px,1fr) minmax(160px,1fr);min-height:440px}.game-toolbar button{padding:8px;font-size:11px}}
+@media(orientation:landscape) and (max-height:550px){.rotate-hint{display:none}body.game-expanded .ps-controller{grid-template-rows:48px minmax(118px,1fr) minmax(108px,1fr);min-height:290px;padding-bottom:0;gap:5px 12px}.shoulder button{height:44px;min-height:44px;padding:5px}.ps-dpad,.ps-face{width:132px;height:132px}.ps-face button{width:43px;height:43px}.analog{width:88px;height:88px}.analog:before{width:65px;height:65px}.analog-thumb{width:52px;height:52px}.ps-center{gap:7px}.analog-cluster{gap:0}.ps-controller .stick-press{min-height:30px}.game-footnote{font-size:10px}body.game-expanded .game-toolbar{min-height:36px}.game-toolbar button{min-height:36px;padding:6px 12px}.game-toolbar #game-state{font-size:10px}}
+
+/* make-interfaces-feel-better: polish in the existing plain-CSS styling system. */
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+h1,h2,h3{text-wrap:balance}p,li{text-wrap:pretty}
+#latency,#count,#game-state,.latency,kbd{font-variant-numeric:tabular-nums lining-nums}
+#latency{min-block-size:20px;white-space:nowrap}#count{min-inline-size:9ch}
+button{min-width:44px;min-height:48px;box-shadow:none;transition-property:transform,background-color,color,border-color;transition-duration:120ms;transition-timing-function:ease-out}
+button:active:not(:disabled){transform:scale(.96)}
+.card{border-radius:30px;box-shadow:none}.text-card,details.text-card{border-radius:26px}
+.trackpad{border-radius:24px}.trackpad:before{border-radius:8px}
+.game-stage{border-radius:24px;box-shadow:none}
+.quiet-action,#disconnect{min-height:44px;min-width:44px}
+.bottom-help summary,details.text-card>summary{min-height:48px}
+.reveal{animation:none}
+.ps-controller button{transition:none;min-width:44px;min-height:44px}
+.ps-controller button:active:not(:disabled){transform:none}
+.ps-controller .stick-press{min-height:44px;min-width:88px}
+.ps-face button{width:49px;height:49px}
+.ps-face button:active:not(:disabled){transform:none}
+.ps-controller .system-buttons button{min-height:56px;min-width:48px}
+.ps-controller button:disabled{color:#505a46}
+.system-buttons svg{transform:translateX(1px)}
+.game-toolbar button{min-height:44px}
+@media(max-width:700px){.card{border-radius:26px}#disconnect{min-height:44px}.game-toolbar button{min-height:44px}}
+@media(max-width:700px) and (orientation:portrait){
+.ps-controller{grid-template-columns:1fr 1fr;grid-template-rows:52px 56px 144px 144px;gap:10px 8px;padding:4px}
+.shoulder-left{grid-area:1/1}.shoulder-right{grid-area:1/2}.shoulder button{min-height:48px}
+.controller-brand{display:none}.ps-center{grid-area:2/1/3/3}.ps-center>p,.center-rule{display:none}
+.system-buttons{gap:20px}.ps-controller .system-buttons button{flex-direction:row;min-width:96px;min-height:48px;gap:10px}
+.ps-dpad{grid-area:3/1}.ps-face{grid-area:3/2}.ps-dpad,.ps-face{width:144px;height:144px;gap:0}
+.ps-controller .ps-dpad button,.ps-controller .ps-face button{width:48px;height:48px;min-height:48px;min-width:48px;padding:8px}
+.ps-face svg{width:25px;height:25px}.ps-dpad button svg{width:23px;height:23px}
+.analog-left{grid-area:4/1;margin:0;justify-self:center}.analog-right{grid-area:4/2;margin:0;justify-self:center}
+.analog{width:96px;height:96px}.analog-cluster{gap:4px}.stick-press small{font-size:10px}
+body.game-expanded .ps-controller{grid-template-columns:1fr 1fr;grid-template-rows:52px 56px minmax(144px,1fr) minmax(144px,1fr);min-height:440px}
+}
+@media(max-width:360px) and (orientation:portrait){
+.shell{padding-left:12px;padding-right:12px}.game-stage{padding:12px 8px}.ps-controller{padding:0;gap:10px 6px;grid-template-rows:52px 56px 132px 144px}
+.ps-dpad,.ps-face{width:132px;height:132px}.ps-controller .ps-dpad button,.ps-controller .ps-face button{width:44px;height:44px;min-width:44px;min-height:44px}
+.stick-press small{display:none}body.game-expanded .ps-controller{grid-template-rows:52px 56px minmax(132px,1fr) minmax(144px,1fr)}
+}
+@media(orientation:landscape) and (max-height:550px){
+.game-toolbar button{min-height:44px}.ps-controller .stick-press{min-height:44px}
+.ps-dpad,.ps-face{width:132px;height:132px;gap:0}.ps-controller .ps-dpad button,.ps-controller .ps-face button{width:44px;height:44px;min-width:44px;min-height:44px}
+body.game-expanded .game-stage{padding-top:6px;padding-bottom:6px}
+body.game-expanded .ps-controller{grid-template-rows:44px minmax(132px,1fr) minmax(132px,1fr);min-height:318px;gap:5px 12px;padding:0 12px}
+body.game-expanded .game-footnote{display:none}.shoulder button{min-height:44px}.system-buttons button{min-height:56px}
+}
+@media(prefers-reduced-motion:reduce){button{transform:none!important;transition:none!important}.reveal{animation:none!important}}
+
+/* Modern TV-remote direction: one compact object, minimum visual chrome. */
+.shell{max-width:620px;padding-top:24px}.workspace{display:flex;flex-direction:column;gap:16px;padding-top:12px}
+.sidebar{min-width:0}nav{grid-template-columns:repeat(3,1fr);gap:6px;margin:0}nav button{justify-content:center;font-size:13px;padding:10px;min-height:44px}
+.connection-detail{border:0;padding:8px 0 0;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.connection-detail>#status{font-size:12px;flex:1;min-width:180px}.connection-detail #latency{font-size:10px;margin-top:0!important;min-block-size:0}
+#disconnect{margin:0;min-height:44px;padding:8px;font-size:11px}
+.remote-intro{text-align:center;margin:0 0 18px}.remote-intro h2{font-size:17px}.remote-intro .hint{font-size:12px;margin-top:3px}
+.tv-remote{width:274px;margin:0 auto;background:#252923;color:#fff;border:1px solid #424a3b;border-radius:38px;padding:22px 24px 18px;touch-action:manipulation}
+.tv-remote button{background:#3c4436;color:#fff;border:1px solid #7e8b72;min-width:48px;min-height:48px;font-weight:600;box-shadow:none;touch-action:none;user-select:none;-webkit-user-select:none}
+.tv-remote button:hover:not(:disabled){background:#505c45;color:#fff}.tv-remote button.held{background:#dcebd4;color:#214b25;border-color:#dcebd4}
+.tv-remote button:disabled{background:#353c30;color:#b8c0b1;border-color:#7e8b72;opacity:1}
+.tv-remote button:focus-visible{outline:3px solid #e5efda;outline-offset:4px}
+.tv-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}.tv-top>div{display:flex;flex-direction:column;gap:4px}
+.remote-wordmark{font-size:11px;font-weight:700;letter-spacing:.16em}#remote-device{font-size:10px;color:#c5cebd;letter-spacing:.01em}
+.tv-remote .tv-power{width:48px;height:48px;padding:12px;border-radius:50%;color:#ffd4cb;background:#3c4436}
+.remote-direction{width:176px;height:176px;border:1px solid #7e8b72;border-radius:50%;background:#333b2e;position:relative;margin:0 auto 20px;touch-action:none}
+.remote-direction button{position:absolute;display:grid;place-items:center;border-color:transparent;background:transparent;border-radius:10px;padding:8px;transition:none}
+.remote-direction button:active:not(:disabled){transform:none}.remote-direction button:disabled{border-color:transparent;background:transparent;color:#b8c0b1}
+.remote-direction svg{width:22px;height:22px}
+.remote-direction .dir-up{width:56px;height:48px;left:59px;top:1px}
+.remote-direction .dir-down{width:56px;height:48px;left:59px;bottom:1px}
+.remote-direction .dir-left{width:48px;height:56px;left:1px;top:59px}
+.remote-direction .dir-right{width:48px;height:56px;right:1px;top:59px}
+.remote-direction .dir-ok{width:64px;height:64px;left:55px;top:55px;border-radius:50%;background:#edf3e6;color:#252923;border:1px solid #edf3e6;font-size:15px}
+.remote-direction .dir-ok:hover:not(:disabled){background:#d7e6cb;color:#252923}
+.remote-direction .dir-ok:disabled{background:#47513e;color:#d9e2d0;border-color:#9ca98f}
+.tv-utilities{display:flex;gap:16px;justify-content:center;margin-bottom:22px}.tv-utilities button{width:80px;min-height:58px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;border:0;background:transparent;border-radius:10px;padding:4px}
+.tv-utilities button:disabled{border:0;background:transparent}.tv-utilities svg{width:22px;height:22px}.tv-utilities span{font-size:10px;font-weight:400}
+.tv-lower{display:flex;justify-content:center;gap:30px;align-items:stretch}
+.volume-rocker{display:flex;flex-direction:column;align-items:center;width:68px;background:#3c4436;border:1px solid #7e8b72;border-radius:34px;padding:4px}
+.volume-rocker button{width:58px;height:52px;border:0;background:transparent;border-radius:26px;font-size:24px;font-weight:400;padding:0}
+.volume-rocker button:disabled{border:0;background:transparent}.volume-rocker span{font-size:9px;color:#d5ddcd;letter-spacing:.12em;padding:4px 0}
+.playback-column{display:flex;flex-direction:column;gap:10px}.playback-column button{width:80px;height:62px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;padding:8px}.playback-column span{font-size:9px;font-weight:400}.playback-column svg{width:22px;height:22px}
+.tv-transport{display:flex;justify-content:center;gap:22px;margin-top:18px}.tv-transport button{width:64px;height:48px;border-radius:24px;border:0;background:transparent;padding:12px}.tv-transport button:disabled{border:0;background:transparent}.tv-transport svg{width:21px;height:21px}
+.remote-base-label{text-align:center;font-size:8px;letter-spacing:.18em;color:#c5cebd;margin:18px 0 0}.remote-note{text-align:center;font-size:12px;color:#50564b;margin:14px 0 0;line-height:1.6}
+.footer{margin-top:20px}.game-heading{align-items:center}
+@media(max-width:700px){.shell{padding-top:16px}.workspace{gap:12px}.remote-intro{margin-bottom:14px}.tv-remote{width:264px;padding:20px 20px 16px}.connection-detail #latency{display:none}.connection-detail #disconnect{font-size:11px}.footer{font-size:11px}.remote-note{font-size:11px}}
+@media(orientation:landscape) and (max-height:550px){.shell{max-width:760px}.workspace{display:flex}.tv-remote{margin:auto}.remote-intro{margin:0 0 12px}.footer{display:flex}}
+
+.remote-mode .remote-intro,.remote-mode .footer{display:none}
+.remote-mode header .meta{display:none}
+.tv-top{margin-bottom:16px}.remote-direction{margin-bottom:16px}
+.tv-utilities{margin-bottom:14px}.tv-utilities button{min-height:48px}
+.volume-rocker button{height:48px}.tv-transport{margin-top:12px}
+.remote-base-label{margin-top:12px}.remote-mode .bottom-help{margin-top:16px}
+
+.target-summary{margin:0 0 12px;padding:9px 12px;border:1px solid #7b8472;border-radius:8px;font-size:12px;color:#343d2c;background:#edf0e7}nav:has(button[hidden]){grid-template-columns:1fr}
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><defs>
+<symbol id="i-mouse" viewBox="0 0 24 24"><path d="M11 2a7 7 0 0 0-6 7v6a7 7 0 0 0 14 0V9a7 7 0 0 0-6-7v7h-2V2Zm0 9h2v3h-2v-3Z"/></symbol>
+<symbol id="i-media" viewBox="0 0 24 24"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-7v2h4v2H7v-2h4v-2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 2v11h16V5H4Zm5 2 6 3.5L9 14V7Z"/></symbol>
+<symbol id="i-game" viewBox="0 0 24 24"><path d="M7 5h10c2 0 3 1 3.5 3l2 9c.5 3-2 4-4 2l-3-3h-7l-3 3c-2 2-4.5 1-4-2l2-9C4 6 5 5 7 5Zm0 3v2H5v2h2v2h2v-2h2v-2H9V8H7Zm9 1v2h2V9h-2Zm-2 3v2h2v-2h-2Z"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M5 4v16l10-8L5 4Zm12 0h3v16h-3V4Z"/></symbol>
+<symbol id="i-prev" viewBox="0 0 24 24"><path d="M4 5h3v14H4V5Zm15 0v14L8 12l11-7Z"/></symbol>
+<symbol id="i-next" viewBox="0 0 24 24"><path d="M17 5h3v14h-3V5ZM5 5l11 7-11 7V5Z"/></symbol>
+<symbol id="i-volume" viewBox="0 0 24 24"><path d="m12 3-6 5H2v8h4l6 5V3Zm3 4v3a3 3 0 0 1 0 4v3a6 6 0 0 0 0-10Zm3-4v3a7 7 0 0 1 0 12v3a10 10 0 0 0 0-18Z"/></symbol>
+<symbol id="i-up" viewBox="0 0 24 24"><path d="m12 5 9 9-2 2-6-6v11h-2V10l-6 6-2-2 9-9Z"/></symbol>
+<symbol id="i-mark" viewBox="0 0 24 24"><path d="M3 3h8v8H3V3Zm10 0h8v8h-8V3ZM3 13h8v8H3v-8Zm10 0h8v8h-8v-8Z"/></symbol>
+</defs></svg>
+<div class="shell">
+<header><div><div class="brand"><svg aria-hidden="true"><use href="#i-mark"/></svg>OmniPad</div><p class="meta">Remote dari HP</p></div><span id="badge" class="badge" data-state="idle">Belum terhubung</span></header>
+<p id="preview-note" class="preview-note" hidden>Pratinjau tampilan. Coba tombolnya di sini; perangkat tidak akan dikontrol.</p>
+<div class="workspace">
+<aside class="sidebar">
+<nav role="tablist" aria-label="Mode remote"><button id="tab-mouse" role="tab" aria-controls="mouse" aria-selected="true" data-tab="mouse"><svg aria-hidden="true"><use href="#i-mouse"/></svg>Mouse</button><button id="tab-remote" role="tab" aria-controls="remote" aria-selected="false" tabindex="-1" data-tab="remote"><svg aria-hidden="true"><use href="#i-media"/></svg>Media</button><button id="tab-game" role="tab" aria-controls="game" aria-selected="false" tabindex="-1" data-tab="game"><svg aria-hidden="true"><use href="#i-game"/></svg>Game</button></nav>
+<div class="connection-detail"><p id="status" class="hint" role="status" aria-live="polite">Buka tautan dari PC untuk mulai menghubungkan.</p><p id="latency" class="latency" hidden></p><button id="disconnect" hidden>Putuskan koneksi</button></div></aside>
+<main class="panel">
+<p id="target-summary" class="target-summary"></p><div id="connect" class="card connect-card reveal"><p class="eyebrow">Mulai di sini</p><h2>Hubungkan ke PC</h2><p class="hint">Jalankan OmniPad di PC, lalu pindai kode QR dengan HP. Gunakan Wi-Fi yang sama.</p><label for="token">Kode koneksi dari PC</label><div class="connect-row"><input id="token" type="password" autocomplete="off" spellcheck="false" aria-describedby="token-hint token-error" placeholder="Tempel kode dari tautan PC"><button id="join" class="primary">Hubungkan</button></div><p id="token-hint" class="hint">Kalau membuka dari QR, kode akan terisi otomatis.</p><p id="token-error" class="field-error" role="alert"></p></div>
+<p id="test-note" class="notice" hidden>Mode uji aktif. Tombol diterima, tetapi mouse dan keyboard PC belum dikontrol.</p>
+<section id="mouse" role="tabpanel" aria-labelledby="tab-mouse"><div class="panel-heading"><h2>Mouse</h2><button id="stop" class="quiet-action" data-control>Lepaskan tombol</button></div><div id="pad" class="trackpad" aria-label="Area sentuh untuk menggerakkan mouse" aria-disabled="true"><svg aria-hidden="true"><use href="#i-mouse"/></svg><strong>Geser untuk gerakkan mouse</strong><p>Ketuk untuk klik.<br>Geser dua jari untuk gulir.</p></div><div class="mouse-buttons"><button data-mouse="left" data-control>Klik kiri</button><button data-mouse="middle" data-control>Klik tengah</button><button data-mouse="right" data-control>Klik kanan</button></div><p class="inline-hint">Untuk menyeret, tahan Klik kiri sambil menggeser area sentuh.</p>
+<details class="text-card"><summary>Ketik ke PC</summary><div class="content"><label for="text">Teks dikirim ke kolom yang sedang dipilih di PC.</label><textarea id="text" rows="2" maxlength="200" placeholder="Tulis teks yang ingin dikirim…"></textarea><span id="count">0 / 200</span><div class="text-actions"><button data-tap="backspace" data-control>Hapus 1 huruf</button><button data-tap="enter" data-control>Enter</button><button id="sendtext" class="primary" data-control>Kirim teks</button></div></div></details></section>
+<section id="remote" role="tabpanel" aria-labelledby="tab-remote">
+<div class="remote-intro"><h2>Remote</h2><p class="hint">Pilih aplikasi di PC, lalu gunakan tombol di bawah.</p></div>
+<div class="tv-remote" aria-label="Remote PC dengan susunan seperti remote TV">
+<div class="tv-top"><div><span class="remote-wordmark">OMNIPAD</span><span id="remote-device">Belum terhubung</span></div><button id="remote-power" class="tv-power" data-control aria-label="Putuskan koneksi remote" title="Putuskan koneksi, bukan matikan PC"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 2h2v10h-2V2Zm-5 3 1.4 1.5A7 7 0 1 0 16.6 6.5L18 5a9 9 0 1 1-12 0Z"/></svg></button></div>
+<div class="remote-direction" aria-label="Navigasi aplikasi aktif">
+<button class="dir-up" data-key="up" data-control aria-label="Atas"><svg aria-hidden="true"><use href="#i-up"/></svg></button>
+<button class="dir-left" data-key="left" data-control aria-label="Kiri"><svg style="transform:rotate(-90deg)" aria-hidden="true"><use href="#i-up"/></svg></button>
+<button class="dir-ok" data-tap="enter" data-control>OK</button>
+<button class="dir-right" data-key="right" data-control aria-label="Kanan"><svg style="transform:rotate(90deg)" aria-hidden="true"><use href="#i-up"/></svg></button>
+<button class="dir-down" data-key="down" data-control aria-label="Bawah"><svg style="transform:rotate(180deg)" aria-hidden="true"><use href="#i-up"/></svg></button>
+</div>
+<div class="tv-utilities"><button data-tap="esc" data-control><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 3 2 2-4 4h7a7 7 0 0 1 0 14v-3a4 4 0 0 0 0-8H7l4 4-2 2-8-8 8-7Z"/></svg><span>Kembali</span></button><button id="tv-home" data-tap="home" data-control hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 11 9-2 2-1-1v10h-6v-7h-4v7H4V12l-1 1-2-2L12 2Z"/></svg><span>Home</span></button><button id="remote-type" data-control><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v12h18V6H3Zm2 2h2v2H5V8Zm4 0h2v2H9V8Zm4 0h2v2h-2V8Zm4 0h2v2h-2V8ZM5 12h2v2H5v-2Zm4 0h10v2H9v-2Z"/></svg><span>Ketik</span></button></div>
+<div class="tv-lower"><div class="volume-rocker"><button data-tap="media_volume_up" data-control aria-label="Besarkan volume">+</button><span>VOL</span><button data-tap="media_volume_down" data-control aria-label="Kecilkan volume">−</button></div><div class="playback-column"><button data-tap="media_play_pause" data-control aria-label="Putar atau jeda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 4 10 8-10 8V4Zm12 0h2v16h-2V4Zm5 0h2v16h-2V4Z"/></svg><span>Putar / jeda</span></button><button data-tap="media_volume_mute" data-control aria-label="Matikan atau nyalakan suara"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 3-6 5H1v8h4l6 5V3Zm4 4-2 2 3 3-3 3 2 2 3-3 3 3 2-2-3-3 3-3-2-2-3 3-3-3Z"/></svg><span>Senyap</span></button></div></div>
+<div class="tv-transport"><button data-tap="media_previous" data-control aria-label="Media sebelumnya"><svg aria-hidden="true"><use href="#i-prev"/></svg></button><button data-tap="media_next" data-control aria-label="Media berikutnya"><svg aria-hidden="true"><use href="#i-next"/></svg></button></div>
+<p class="remote-base-label">REMOTE PC</p>
+</div>
+<p class="remote-note">Tombol mengikuti aplikasi yang sedang aktif.<br>Tombol daya hanya memutuskan koneksi.</p>
+<details class="bottom-help"><summary>Pintasan tambahan</summary><div class="shortcuts"><button data-tap="f" data-control>Layar penuh <kbd>F</kbd></button><button data-tap="backspace" data-control>Hapus <kbd>⌫</kbd></button></div></details>
+</section>
+<section id="game" role="tabpanel" aria-labelledby="tab-game" hidden>
+<div class="panel-heading game-heading"><div><h2>Stik game</h2><p class="hint">Dua analog dan tombol lengkap.</p></div><button id="expand-game" class="quiet-action">Perbesar stik</button></div>
+<p class="rotate-hint">Putar HP ke samping agar posisi tombol lebih nyaman.</p>
+<div class="game-stage">
+<div class="game-toolbar"><button id="exit-game" class="quiet-action">Kembali ke remote</button><span id="game-state">Belum terhubung</span><button id="game-release" class="quiet-action" data-control>Lepaskan tombol</button></div>
+<div class="ps-controller" aria-label="Stik game dengan susunan tombol PlayStation">
+<div class="shoulder shoulder-left"><button data-key="z" data-control aria-label="L2, tombol Z">L2</button><button data-key="q" data-control aria-label="L1, tombol Q">L1</button></div>
+<div class="controller-brand"><span>OMNIPAD</span><small>KEYBOARD MODE</small></div>
+<div class="shoulder shoulder-right"><button data-key="c" data-control aria-label="R2, tombol C">R2</button><button data-key="e" data-control aria-label="R1, tombol E">R1</button></div>
+<div class="ps-dpad" aria-label="Tombol arah">
+<button class="north" data-key="up" data-control aria-label="D-pad atas"><svg aria-hidden="true"><use href="#i-up"/></svg></button>
+<button class="west" data-key="left" data-control aria-label="D-pad kiri"><svg style="transform:rotate(-90deg)" aria-hidden="true"><use href="#i-up"/></svg></button>
+<span class="dpad-center" aria-hidden="true"></span>
+<button class="east" data-key="right" data-control aria-label="D-pad kanan"><svg style="transform:rotate(90deg)" aria-hidden="true"><use href="#i-up"/></svg></button>
+<button class="south" data-key="down" data-control aria-label="D-pad bawah"><svg style="transform:rotate(180deg)" aria-hidden="true"><use href="#i-up"/></svg></button>
+</div>
+<div class="ps-center"><div class="system-buttons"><button data-key="tab" data-control aria-label="Select, tombol Tab"><span class="select-shape" aria-hidden="true"></span><span>Select</span></button><button data-key="enter" data-control aria-label="Start, tombol Enter"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m7 4 13 8-13 8V4Z"/></svg><span>Start</span></button></div><span class="center-rule" aria-hidden="true"></span><p>Tekan dan tahan.<br>Gabungkan beberapa tombol.</p></div>
+<div class="ps-face" aria-label="Tombol aksi">
+<button class="north triangle" data-key="i" data-control aria-label="Segitiga, tombol I"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5 28 26H4L16 5Z"/></svg></button>
+<button class="west square" data-key="j" data-control aria-label="Kotak, tombol J"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 6h20v20H6Z"/></svg></button>
+<button class="east circle" data-key="l" data-control aria-label="Lingkaran, tombol L"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11"/></svg></button>
+<button class="south cross" data-key="space" data-control aria-label="Silang, tombol Spasi"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m7 7 18 18M25 7 7 25"/></svg></button>
+</div>
+<div class="analog-cluster analog-left"><div class="analog" id="analog-left" data-stick="left" role="group" aria-label="Analog kiri, geser untuk tombol W A S D"><span class="analog-thumb" aria-hidden="true"></span></div><button class="stick-press" data-key="shift" data-control aria-label="L3, tombol Shift">L3 <small>Tekan analog</small></button></div>
+<div class="analog-cluster analog-right"><div class="analog" id="analog-right" data-stick="right" role="group" aria-label="Analog kanan, geser untuk tombol panah"><span class="analog-thumb" aria-hidden="true"></span></div><button class="stick-press" data-key="k" data-control aria-label="R3, tombol K">R3 <small>Tekan analog</small></button></div>
+</div>
+<p class="game-footnote">Analog mengikuti arah keyboard. Atur fungsi tombol di pengaturan game PC.</p>
+</div>
+<details class="bottom-help game-mapping"><summary>Lihat fungsi tombol di PC</summary><div class="mapping-grid"><p><strong>Analog kiri</strong>W · A · S · D</p><p><strong>Analog kanan / D-pad</strong>Tombol panah</p><p><strong>Segitiga / Kotak</strong>I / J</p><p><strong>Lingkaran / Silang</strong>L / Spasi</p><p><strong>L1 / L2 / L3</strong>Q / Z / Shift</p><p><strong>R1 / R2 / R3</strong>E / C / K</p><p><strong>Select / Start</strong>Tab / Enter</p></div><p class="hint">Ini susunan tombol seperti stik PS. Game masih menerima input keyboard, belum controller PlayStation atau Xbox asli. Kedua analog belum memiliki kecepatan gerak bertingkat.</p></details>
+</section>
+<p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+<details class="bottom-help"><summary>Cara menggunakan remote</summary><ul><li>Mouse: ketuk satu jari untuk klik kiri; ketuk dua jari untuk klik kanan.</li><li>Geser dua jari untuk menggulir. Tahan Klik kiri lalu geser untuk menyeret.</li><li>Untuk mengetik, pilih kolom di PC, buka Ketik ke PC, lalu tekan Kirim teks.</li><li>Jika tombol terasa tertahan, tekan Lepaskan tombol.</li><li>Saat berpindah aplikasi di HP, koneksi akan diputus. Tekan Hubungkan untuk memakai remote lagi.</li><li>Untuk menghentikan akses sepenuhnya, tutup OmniPad di PC.</li></ul></details>
+</main></div><footer class="footer"><span>OmniPad / Remote PC</span><span>Gunakan Wi-Fi pribadi yang sama.</span></footer>
+</div>
+<script>
+(()=>{
+'use strict';
+const $=s=>document.querySelector(s),all=s=>[...document.querySelectorAll(s)];
+const preview=location.protocol==='file:'||new URLSearchParams(location.search).get('preview')==='1';
+const target=(preview&&new URLSearchParams(location.search).get('target')==='tv')||document.querySelector('meta[name=omnipad-target]')?.content==='tv'?'tv':'pc';
+const deviceName=target==='tv'?'Google TV':'PC';
+let ws=null,ready=preview,connecting=false,dry=false,pinger=null,tab='remote',lastError='',pendingText=false,feedbackTimer=null;
+const points=new Map(),owners=new Map(),keySources=new Map(),analogResets=[];let start=0,moved=false,multi=false,cancelled=false,scrollCarry=0,moveX=0,moveY=0,frame=0;
+let token=location.hash.slice(1);if(token){try{history.replaceState(null,'',location.pathname+location.search)}catch{}}$('#token').value=token;
+const errorCopy={unauthorized:'Kode koneksi tidak cocok. Pindai ulang QR yang tampil di PC.',busy:'PC sedang dikontrol HP lain. Putuskan sesi sebelumnya, lalu hubungkan lagi.',invalid_or_timed_out:'Koneksi terhenti. Pastikan Wi-Fi stabil, lalu tekan Hubungkan.',input_backend_failed:'PC belum bisa menjalankan kontrol. Periksa izin OmniPad di PC, lalu jalankan ulang.'};
+function feedback(text){clearTimeout(feedbackTimer);$('#feedback').textContent=text;if(text)feedbackTimer=setTimeout(()=>$('#feedback').textContent='',5000)}
+function controls(){all('[data-control]').forEach(b=>b.disabled=!ready);$('#pad').setAttribute('aria-disabled',String(!ready));$('#join').disabled=connecting;$('#join').textContent=connecting?'Menghubungkan…':'Hubungkan';$('#disconnect').hidden=!ready||preview;$('#sendtext').disabled=!ready||!$('#text').value.length;$('#test-note').hidden=!dry;all('.analog').forEach(el=>el.setAttribute('aria-disabled',String(!ready)));$('#remote-device').textContent=preview?'Pratinjau':ready?(dry?'Mode uji':deviceName+' terhubung'):'Belum terhubung';$('#game-state').textContent=preview?'Pratinjau':ready?(dry?'Mode uji':'Terhubung'):'Belum terhubung';$('#latency').hidden=!ready||preview}
+function state(kind,message){$('#badge').dataset.state=kind;$('#badge').textContent=({idle:'Belum terhubung',connecting:'Menghubungkan',ready:'Terhubung',testing:'Mode uji',preview:'Pratinjau',error:'Perlu diperiksa'})[kind];$('#status').textContent=message;controls()}
+function clearLocal(){keySources.clear();for(const reset of analogResets)reset();for(const set of owners.values())set.clear();all('.held').forEach(b=>b.classList.remove('held'));points.clear();moveX=moveY=scrollCarry=0;cancelAnimationFrame(frame);frame=0}
+function send(p){if(!ready)return false;if(preview){if(p.type==='text')feedback('Contoh teks diterima. Pratinjau ini tidak mengirim ke PC.');else if(!['move','scroll','ping','release'].includes(p.type)&&p.down!==false)feedback('Contoh kontrol: '+(p.name||'tombol')+'. Belum dikirim ke PC.');return true}if(ws?.readyState!==1)return false;if(ws.bufferedAmount>8192){lastError='Koneksi terlalu lambat. Periksa Wi-Fi, lalu hubungkan kembali.';ws.close();return false}ws.send(JSON.stringify(p));return true}
+function release(show=false){send({type:'release'});clearLocal();if(show)feedback(preview?'Semua tombol contoh dilepaskan.':'Perintah melepas semua tombol dikirim ke PC.')}
+function closeSession(){release();ready=false;clearInterval(pinger);pinger=null;pendingText=false;clearLocal();controls()}
+// Adapter exposes the same client interface; TV sends discrete HTTP actions, PC uses WebSocket.
+class TVTransport {
+ constructor(){this.readyState=1;this.bufferedAmount=0;this.auth='';this.queue=[];this.running=false;this.timers=new Map();this.controller=null;this.started=false;setTimeout(()=>this.onopen?.(),0)}
+ emit(data){if(this.readyState===1)this.onmessage?.({data:JSON.stringify(data)})}
+ clear(){for(const timer of this.timers.values())clearInterval(timer);this.timers.clear();this.queue=[]}
+ close(){if(this.readyState===3)return;this.clear();this.readyState=3;this.controller?.abort();setTimeout(()=>this.onclose?.(),0)}
+ send(raw){if(this.readyState!==1)return;const p=JSON.parse(raw);if(p.token){this.auth=p.token;this.enqueue({action:'ping',hello:true});return}if(p.type==='release'){this.clear();return}if(p.type==='ping'){if(!this.running&&!this.queue.length)this.enqueue({action:'ping',id:p.id});return}
+ const map={up:'up',down:'down',left:'left',right:'right',enter:'ok',esc:'back',home:'home',media_play_pause:'play_pause',media_next:'next',media_previous:'previous',media_volume_up:'volume_up',media_volume_down:'volume_down',media_volume_mute:'mute'};
+ if(p.type!=='key'||!map[p.name]){this.emit({type:'feedback',message:'Fitur ini belum tersedia pada Google TV.'});return}
+ if(!p.down){clearInterval(this.timers.get(p.name));this.timers.delete(p.name);return}
+ this.enqueue({action:map[p.name]});
+ if(['up','down','left','right'].includes(p.name)&&!this.timers.has(p.name))this.timers.set(p.name,setInterval(()=>{if(this.readyState===1&&!this.running&&!this.queue.length)this.enqueue({action:map[p.name]})},250));
+ }
+ enqueue(item){if(this.queue.length>=8){this.emit({error:'invalid_or_timed_out'});this.close();return}this.queue.push(item);this.drain()}
+ async drain(){if(this.running||this.readyState!==1)return;this.running=true;try{while(this.queue.length&&this.readyState===1){const item=this.queue.shift(),controller=new AbortController();this.controller=controller;const timeout=setTimeout(()=>controller.abort(),2200);try{const r=await fetch('/command',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+this.auth},body:JSON.stringify({action:item.action}),signal:controller.signal,cache:'no-store'});const result=await r.json();if(this.readyState!==1)return;if(result.error==='unsupported'){this.emit({type:'feedback',message:'TV belum menerima aksi ini. Coba aplikasi atau tombol lain.'});continue}if(!r.ok||result.error){this.emit({error:result.error==='pairing'?'unauthorized':'invalid_or_timed_out'});this.close();return}if(item.hello){this.started=true;this.emit({type:'ready',dry_run:false,protocol:1})}else if(item.action==='ping')this.emit({type:'pong',id:item.id});else this.emit({type:'ack'})}catch(e){if(this.readyState===1){this.onerror?.();this.close()}return}finally{clearTimeout(timeout)}}}finally{this.running=false;this.controller=null}}
+}
+$('#join').onclick=()=>{if(connecting||ready)return;token=$('#token').value.trim();$('#token-error').textContent='';$('#token').setAttribute('aria-invalid','false');if(!token){$('#token-error').textContent='Masukkan kode dari tautan '+deviceName+', atau pindai ulang QR.';$('#token').setAttribute('aria-invalid','true');$('#token').focus();return}if(location.protocol==='file:')return;connecting=true;lastError='';state('connecting','Menghubungkan ke '+deviceName+'…');const current=target==='tv'?new TVTransport():new WebSocket(`${location.protocol==='https:'?'wss':'ws'}://${location.host}/ws`);ws=current;current.onopen=()=>{if(ws===current)current.send(JSON.stringify({token}))};current.onmessage=e=>{if(ws!==current)return;let m;try{m=JSON.parse(e.data)}catch{return}if(m.type==='ready'){connecting=false;ready=true;dry=!!m.dry_run;$('#connect').hidden=true;state(dry?'testing':'ready',dry?'Koneksi berhasil. Kontrol PC belum diaktifkan.':'Siap digunakan. Pilih mode remote.');clearInterval(pinger);pinger=setInterval(()=>send({type:'ping',id:Date.now()}),target==='tv'?3000:500)}else if(m.type==='pong')$('#latency').textContent='Waktu respons koneksi: '+Math.max(0,Date.now()-m.id)+' ms';else if(m.type==='ack'&&pendingText){pendingText=false;feedback(dry?'Teks diterima dalam mode uji. Belum diketik di PC.':'PC menerima perintah. Periksa teks di kolom yang dipilih.')}else if(m.type==='feedback'){feedback(m.message)}else if(m.error){lastError=errorCopy[m.error]||'Koneksi tidak dapat dilanjutkan. Jalankan ulang OmniPad di '+deviceName+', lalu pindai QR baru.';state('error',lastError)}};current.onclose=()=>{if(ws!==current)return;closeSession();connecting=false;dry=false;$('#connect').hidden=false;state(lastError?'error':'idle',lastError||'Koneksi terputus. Pastikan '+deviceName+' aktif dan Wi-Fi sama, lalu tekan Hubungkan.');ws=null};current.onerror=()=>{if(ws!==current)return;lastError=deviceName+' belum bisa dijangkau. Pastikan OmniPad berjalan, alamat benar, dan Wi-Fi sama.';state('error',lastError)}};
+$('#token').addEventListener('keydown',e=>{if(e.key==='Enter')$('#join').click()});$('#disconnect').onclick=()=>{release();lastError='';ws?.close()};$('#stop').onclick=()=>release(true);$('#game-release').onclick=()=>release(true);
+function chooseTab(next,focus=false){if(target==='tv'&&next!=='remote')return;release();document.body.classList.remove('game-expanded');document.body.classList.toggle('remote-mode',next==='remote');tab=next;all('[data-tab]').forEach(b=>{const selected=b.dataset.tab===tab;b.setAttribute('aria-selected',String(selected));b.tabIndex=selected?0:-1;if(selected&&focus)b.focus()});all('[role=tabpanel]').forEach(s=>s.hidden=s.id!==tab)}
+all('[data-tab]').forEach((b,i)=>{b.onclick=()=>chooseTab(b.dataset.tab);b.onkeydown=e=>{let tabs=all('[data-tab]').filter(el=>!el.hidden),n=tabs.indexOf(b);if(e.key==='ArrowRight')n=(n+1)%tabs.length;else if(e.key==='ArrowLeft')n=(n-1+tabs.length)%tabs.length;else if(e.key==='Home')n=0;else if(e.key==='End')n=tabs.length-1;else return;e.preventDefault();chooseTab(tabs[n].dataset.tab,true)}});
+function tap(name){if(send({type:'key',name,down:true}))send({type:'key',name,down:false})}
+all('[data-tap]').forEach(b=>b.onclick=()=>{tap(b.dataset.tap);if(!preview)feedback('Perintah dikirim ke '+deviceName+'.')});
+function holdKey(name,source,down){let set=keySources.get(name);if(!set){set=new Set();keySources.set(name,set)}const before=set.size;if(down)set.add(source);else set.delete(source);if(!before&&set.size)send({type:'key',name,down:true});else if(before&&!set.size)send({type:'key',name,down:false})}
+all('[data-key],[data-mouse]').forEach(b=>{const set=new Set();owners.set(b,set);const type=b.dataset.key?'key':'button',name=b.dataset.key||b.dataset.mouse;function down(id){if(!ready||set.has(id))return;if(!set.size){if(type==='key')holdKey(name,b,true);else send({type,name,down:true})}set.add(id);b.classList.add('held')}function up(id){if(!set.delete(id))return;if(!set.size){b.classList.remove('held');if(type==='key')holdKey(name,b,false);else send({type,name,down:false})}}b.onpointerdown=e=>{if(!ready)return;e.preventDefault();b.setPointerCapture(e.pointerId);down(e.pointerId)};b.onpointerup=e=>up(e.pointerId);b.onpointercancel=e=>up(e.pointerId);b.onlostpointercapture=e=>up(e.pointerId);b.onkeydown=e=>{if([' ','Enter'].includes(e.key)){e.preventDefault();down('keyboard')}};b.onkeyup=e=>{if([' ','Enter'].includes(e.key)){e.preventDefault();up('keyboard')}};b.onblur=()=>{if(set.has('keyboard'))up('keyboard')};b.onclick=e=>{if(e.detail===0&&!set.size&&ready){if(type==='key'){holdKey(name,b,true);holdKey(name,b,false)}else{send({type,name,down:true});send({type,name,down:false})}}}});
+
+$('#expand-game').onclick=()=>{release();document.body.classList.add('game-expanded');feedback('')};
+$('#exit-game').onclick=()=>{release();document.body.classList.remove('game-expanded');$('#expand-game').focus()};
+window.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('game-expanded')){release();document.body.classList.remove('game-expanded')}});
+all('[data-stick]').forEach(el=>{let pointer=null,active=new Set();const thumb=el.querySelector('.analog-thumb'),left=el.dataset.stick==='left',source='analog-'+el.dataset.stick;
+function update(x,y){const next=new Set();if(x<-.35)next.add(left?'a':'left');if(x>.35)next.add(left?'d':'right');if(y<-.35)next.add(left?'w':'up');if(y>.35)next.add(left?'s':'down');for(const key of active)if(!next.has(key))holdKey(key,source,false);for(const key of next)if(!active.has(key))holdKey(key,source,true);active=next}
+function reset(local=false){if(!local)for(const key of active)holdKey(key,source,false);active.clear();pointer=null;thumb.style.transform='translate(0px,0px)';el.classList.remove('engaged')}
+analogResets.push(()=>reset(true));
+function move(e){const rect=el.getBoundingClientRect(),radius=rect.width*.32;let x=(e.clientX-rect.left-rect.width/2)/radius,y=(e.clientY-rect.top-rect.height/2)/radius;const length=Math.hypot(x,y);if(length>1){x/=length;y/=length}thumb.style.transform=`translate(${x*radius}px,${y*radius}px)`;update(x,y)}
+el.onpointerdown=e=>{if(!ready||pointer!==null)return;e.preventDefault();pointer=e.pointerId;el.setPointerCapture(pointer);el.classList.add('engaged');move(e)};
+el.onpointermove=e=>{if(e.pointerId===pointer&&ready)move(e)};
+const end=e=>{if(e.pointerId===pointer)reset()};el.onpointerup=end;el.onpointercancel=end;el.onlostpointercapture=end;el.oncontextmenu=e=>e.preventDefault();
+});
+$('#remote-power').onclick=()=>{if(preview){release();feedback('Contoh: koneksi remote diputus. Perangkat tidak dimatikan.')}else{release();lastError='';ws?.close()}};
+$('#remote-type').onclick=()=>{chooseTab('mouse');const field=$('#text');field.closest('details').open=true;field.focus();field.scrollIntoView?.({behavior:'auto',block:'center'})};
+$('#text').oninput=()=>{$('#count').textContent=$('#text').value.length+' / 200';controls()};$('#sendtext').onclick=()=>{const text=$('#text').value;if(!text)return;if(send({type:'text',text})){pendingText=!preview;if(!preview)feedback('Teks dikirim. Periksa kolom yang dipilih di PC.')}else feedback('Teks belum dikirim. Hubungkan remote ke PC lebih dulu.')};
+const pad=$('#pad');function flush(){frame=0;if(!moveX&&!moveY)return;send({type:'move',dx:Math.max(-500,Math.min(500,moveX)),dy:Math.max(-500,Math.min(500,moveY))});moveX=moveY=0}
+pad.onpointerdown=e=>{if(!ready)return;e.preventDefault();pad.setPointerCapture(e.pointerId);if(!points.size){start=performance.now();moved=false;multi=false;cancelled=false;scrollCarry=0}points.set(e.pointerId,{x:e.clientX,y:e.clientY,sx:e.clientX,sy:e.clientY});if(points.size>1){multi=true;moveX=moveY=0;cancelAnimationFrame(frame);frame=0}};
+pad.onpointermove=e=>{const old=points.get(e.pointerId);if(!old||!ready)return;const dx=e.clientX-old.x,dy=e.clientY-old.y;const p={...old,x:e.clientX,y:e.clientY};points.set(e.pointerId,p);if(Math.hypot(p.x-p.sx,p.y-p.sy)>6)moved=true;if(points.size===1&&!multi){moveX+=dx*1.5;moveY+=dy*1.5;if(!frame)frame=requestAnimationFrame(flush)}else if(points.size===2){scrollCarry+=-dy/40;const n=Math.trunc(scrollCarry);if(n){send({type:'scroll',dy:Math.max(-20,Math.min(20,n))});scrollCarry-=n}}};
+function end(e,cancel){if(!points.has(e.pointerId))return;if(cancel)cancelled=true;points.delete(e.pointerId);if(!points.size){flush();if(!cancelled&&!moved&&performance.now()-start<250){const name=multi?'right':'left';send({type:'button',name,down:true});send({type:'button',name,down:false})}}}
+pad.onpointerup=e=>end(e,false);pad.onpointercancel=e=>end(e,true);pad.onlostpointercapture=e=>{if(points.has(e.pointerId))end(e,true)};pad.oncontextmenu=e=>e.preventDefault();
+document.addEventListener('visibilitychange',()=>{if(document.hidden){release();if(!preview)ws?.close()}});window.addEventListener('blur',()=>release());window.addEventListener('pagehide',()=>{release();ws?.close()});window.addEventListener('orientationchange',()=>release());
+function setupTarget(){
+ $('#target-summary').textContent=target==='tv'?'Google TV · Navigasi dan media':'PC · Mouse, media, ketik, dan stik keyboard';
+ $('#connect h2').textContent='Hubungkan ke '+deviceName;
+ $('#connect .hint').textContent=target==='tv'?'Buka OmniPad Receiver di TV, aktifkan kontrol, lalu pindai QR. Gunakan Wi-Fi yang sama.':'Jalankan OmniPad di PC, lalu pindai kode QR dengan HP. Gunakan Wi-Fi yang sama.';
+ document.querySelector('label[for=token]').textContent='Kode koneksi dari '+deviceName;
+ $('#token-hint').textContent='Kalau membuka dari QR, kode akan terisi otomatis.';$('#token').placeholder='Tempel kode dari tautan '+deviceName;$('#remote .remote-intro .hint').textContent='Pilih aplikasi di '+deviceName+', lalu gunakan tombol di bawah.';document.title='OmniPad — Remote '+deviceName;
+ $('.remote-wordmark').textContent='OMNIPAD';$('.remote-base-label').textContent=target==='tv'?'GOOGLE TV':'REMOTE PC';
+ if(target==='tv'){
+  all('[data-tab]').forEach(el=>{if(el.dataset.tab!=='remote')el.hidden=true});
+  $('#remote-type').hidden=true;$('#tv-home').hidden=false;
+  $('#remote .shortcuts').closest('details').hidden=true;
+  $('#feedback').nextElementSibling.innerHTML='<summary>Cara menggunakan remote TV</summary><ul><li>Gunakan arah dan OK untuk berpindah serta memilih menu.</li><li>Kembali dan Home mengikuti navigasi Google TV.</li><li>Volume dan media bergantung aplikasi TV dan konfigurasi speaker.</li><li>Tombol daya memutus koneksi HP. Untuk mencabut akses, ganti tautan pairing atau hentikan receiver di TV.</li><li>Mouse, ketik, dan stik game tersedia pada receiver PC; belum pada TV.</li><li>Untuk mengganti perangkat tujuan, buka QR dari perangkat tersebut.</li></ul>';
+  errorCopy.unauthorized='Tautan TV sudah berubah atau kode tidak cocok. Pindai QR terbaru di TV.';
+  errorCopy.input_backend_failed='TV belum menerima kontrol. Periksa izin OmniPad Remote di pengaturan aksesibilitas TV.';
+ }
+}
+setupTarget();
+chooseTab('remote');
+if(preview){$('#preview-note').hidden=false;$('#connect').hidden=true;state('preview','Coba tampilan dan tombol. Belum terhubung ke perangkat.')}else state('idle',token?'Kode sudah terisi. Tekan Hubungkan untuk mulai.':'Buka tautan atau pindai QR dari OmniPad di '+deviceName+'.');
+})();
+</script>
+</body></html>

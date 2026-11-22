@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "node pc.cjs && node tv.cjs && node laptop.cjs && node mirror.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "30.1.3"
+  }
+}
